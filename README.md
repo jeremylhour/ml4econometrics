@@ -53,3 +53,11 @@ Part V. Textual data
 Part VI. Exercises
 
 15. Exercises
+
+* * *
+
+# Link between chapters
+
+To help the reader navigate this book, the following figure shows the connection between each chapter, identified by its number. An arrow going from one node to another indicates that the originating chapter is a prerequisite for understanding the destination chapter. Apart from Chapters 2 and 3, which are not central to the main discussion, the reader may start with Chapters 4, 8, or 12, which are the first chapters of the second, third, and fifth parts respectively, or with either of the two chapters in the fourth part.
+
+![Link between chapters](./ch01_introduction/graph_chapter.png)
