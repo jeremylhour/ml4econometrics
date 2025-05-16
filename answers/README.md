@@ -126,36 +126,38 @@
      - For $b=1, \ldots, B$, reshuffle treatment assignment at random, compute the OLS estimator of $\tau_0$, $\hat \tau_b$ and compare it to $\hat \tau^{obs}$. 
      - Compute Fisher's p-value : 
 
-        $$hat p := \frac{1}{B} \sum_{b=1}^{B} \mathbf{1} \left\{ \vert \hat \tau_b \vert  \ge \vert \hat \tau^{obs} \vert \right\}.$$
+        $$\hat p := \frac{1}{B} \sum_{b=1}^{B} \mathbf{1} \left\{ \vert \hat \tau_b \vert  \ge \vert \hat \tau^{obs} \vert \right\}.$$
 
      - Reject $H_0$ if $\hat p$ is below a pre-determined threshold: the observed treatment allocation yields an effect that is abnormaly high compared to a random distribution.
 
 
 ## 11. Forecasting in high-dimension
 
-1. On ne peut plus utiliser l'hypothèse d'indépendance des observations, qui sont corrélées dans le temps. Les séries temporelles économiques et financières sont aussi connues pour posséder des queues de distribution épaisses. Enfin, nous devons aussi prendre en compte le fait que les séries ne sont pas échantillonnées à la même fréquence.
+1. We can no longer assume independence of observations, as they are correlated over time. Economic and financial time series are also known to exhibit heavy-tailed distributions. Finally, we must also account for the fact that the series are not sampled at the same frequency.
 
-2. Certaines variables explicatives ont souvent une structure particulière, qui fait que peu de groupes de variables (macroéconomie, différents secteurs d’activité, variables financières, news) peuvent être utiles pour la prédiction, mais au sein de ces groupes plusieurs variables le sont. 
+2. Some explanatory variables often have a particular structure, such that only a few groups of variables (macroeconomics, different industry sectors, financial variables, news) may be useful for prediction—but within these groups, several variables are relevant.
 
-3. La pénalité du Lasso impose la parcimonie et conduit à un biais qu'il est nécessaire de prendre en compte quand il s'agit de faire de l'inférence sur un groupe de coefficients (voir section 7.3).
+3. The Lasso penalty enforces sparsity and introduces a bias that must be taken into account when making inference on a group of coefficients (see Section 7.3).
 
-4. Le risque à utiliser une méthode imposant la parcimonie est un risque de mauvaise spécification, c'est à dire que cette hypothèse peut ne pas être vérifiée, entraînant un biais. Certains exemples empiriques mentionnés en section 11.2.1 montrent que cette hypothèse doit être justifiée avec précaution. L'approche FARM permet de combiner une partie parcimonieuse avec une partie dense, et donc de tester si cette dernière est utile. 
+4. The risk of using a method that imposes sparsity is the risk of misspecification, meaning that the sparsity assumption may not hold, leading to bias. Some empirical examples mentioned in Section 11.2.1 show that this assumption must be justified carefully. The FARM approach allows combining a sparse component with a dense one, thus enabling testing whether the dense component is useful.
 
 
 ## 12. Working with textual data
 
-1. Le vocabulaire d'un texte peut être très vaste, ce qui nécessite de représenter chaque mot par un vecteur de grande dimension via une représentation one-hot (see chapitre 13). Dans les modèles plus avancés, les vecteurs de grande dimension permettent de capturer plus de détails et de nuances dans le texte.
+1. The vocabulary of a text can be very large, which requires representing each word as a high-dimensional vector using a one-hot representation (see Chapter 13). In more advanced models, high-dimensional vectors allow for capturing more details and nuances in the text.
 
-2. Voici deux exemples parmi une infinité. (i) Traitement des erreurs de frappe.  L'utilisation de n-grams de caractères permet de contourner ce problème en permettant de représenter le texte à un niveau inférieur, au niveau des séquences de caractères. (ii) Traitement des formes plurielles.
+2. Here are two examples among infinitely many:
+(i) Handling typos: The use of character n-grams helps address this issue by representing text at a lower level—at the level of character sequences.
+(ii) Handling plural forms.
 
-3. Les modèles faisant usage de variables latentes permettent de capturer le contexte général d'un document. Néanmoins, ces modèles sont d'une part complexe à estimer, et ont été, d'autres parts, dépassés par les modèles modernes de langage pré-entrainés en terme de performance.
+3. Models using latent variables help capture the general context of a document. However, these models are, on the one hand, complex to estimate, and on the other hand, have been outperformed in terms of performance by modern pretrained language models.
 
-4. Le premier problème consiste à apparier chaque message du forum avec le ou les actif(s) financier(s) mentionnés. Cette phase dépend largement de la qualité des données. Si les messages mentionnent systématiquement des symboles boursiers (AAPL pour Apple Inc., GME pour GameStop etc.) il suffit de se procurer une liste de ces symboles puis d'en cherche les occurrences dans les messages. En utilisant les dates des messages, on peut ensuite apparier chaque message au(x) prix des actifs mentionnés. Si les messages ne mentionnent pas de symboles boursiers, il faut soit adopter une approche plus sophistiquée (distance aux noms des entreprises etc.), soit adopter une approche plus *data-driven*, par exemple de classification <<~sac de mots~>> avec un grand nombre de classes (autant que d'actifs). Une fois l'appariement des données effectué, un grand nombre de stratégies sont possibles (e.g. analyse du sentiment des messages).
+4. The first challenge is to match each forum post with the financial asset(s) mentioned. This phase largely depends on data quality. If the posts systematically mention stock tickers (e.g., AAPL for Apple Inc., GME for GameStop, etc.), it's enough to obtain a list of these tickers and search for their occurrences in the messages. Using the message dates, each post can then be matched to the prices of the mentioned assets. If the messages do not mention stock tickers, one must either adopt a more sophisticated approach (e.g., based on proximity to company names), or a more data-driven approach—such as a "bag-of-words" classification with a large number of classes (as many as there are assets). Once the data matching is done, a wide range of strategies become possible (e.g., sentiment analysis of the messages).
 
 
 ## 13. Word embeddings
 
-1. La similarité cosinus pour deux mots distincts est de zéro.
+1. The cosine similarity for two distinct words is zero.
 
 2. La réponse à la question précédente indique que pour deux mots distincts la similarité cosinus est de zéro. Il n'est donc pas possible d'obtenir une notion de << degré de similarité >> entre deux mots avec cette approche.
 
@@ -167,7 +169,7 @@
 
 6. see section 13.3.
 
-7. On espère que l'on trouvera le vecteur représentant le mot <<~taureau~>>.
+7. XXX
 
 
 ## 14. Modern language models
