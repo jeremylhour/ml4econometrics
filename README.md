@@ -1,4 +1,4 @@
-# achine Learning for Econometrics
+# Machine Learning for Econometrics
 
 <p align="center">
 <img src="https://github.com/jeremylhour/ml4econometrics/blob/main/ch01_introduction/cover.jpg" width="400">
