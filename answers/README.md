@@ -2,50 +2,51 @@
 
 ## 4. Post-selection Inference
 
-- see section 4.2.
+1. see section 4.2.
     
-- see section 4.3.
+2. see section 4.3.
     
-- Ideally, we would like to be able to calculate confidence intervals and perform tests on this parameter of interest. However, the fact that the asymptotic distribution of the Lasso estimator is not known makes constructing these quantities more difficult.
+3. Ideally, we would like to be able to calculate confidence intervals and perform tests on this parameter of interest. However, the fact that the asymptotic distribution of the Lasso estimator is not known makes constructing these quantities more difficult.
         
-- Regularization bias is a bias that arises because the use of machine learning tools in the first step produces estimators that do not converge at a fast enough rate. In the case of Lasso, it is a form of omitted variable bias. It can exist even in a low-dimensional setting if a non-conventional estimator is used in the first step or if there is a selection step involved. (Think of the Leeb and Pötscher model).
+4. Regularization bias is a bias that arises because the use of machine learning tools in the first step produces estimators that do not converge at a fast enough rate. In the case of Lasso, it is a form of omitted variable bias. It can exist even in a low-dimensional setting if a non-conventional estimator is used in the first step or if there is a selection step involved. (Think of the Leeb and Pötscher model).
     
-- see section  4.5.
+5. see section  4.5.
     
-- Leeb and Pötscher’s argument is that inference after a selection step is more complicated than it seems, because post-selection estimators do not have 'good properties' (such as asymptotic normality). Theorem 5.1 is not contradictory: it provides a solution to the problem. It shows that in cases where the estimator is immunized, inference based on the normal distribution is still possible. In many cases, this means adding another selection step (hence the name 'double selection').
+6. Leeb and Pötscher’s argument is that inference after a selection step is more complicated than it seems, because post-selection estimators do not have 'good properties' (such as asymptotic normality). Theorem 5.1 is not contradictory: it provides a solution to the problem. It shows that in cases where the estimator is immunized, inference based on the normal distribution is still possible. In many cases, this means adding another selection step (hence the name 'double selection').
 
 
 ## 5. Generalization and methodology
 
-- Non, la procédure de double sélection est la clé. On note toutefois que le Lasso est <<~suffisamment bon~>> pour être utilisé dans les premières étapes.
-    
-- Voir la remarque du chapitre 5. On utilise le partitionnement de l'échantillon.
-    
-- On utilise le Lasso lorsque l'on est prêt à supposer une structure linéaire pour laquelle les coefficients sont parcimonieux (seulement un petit nombre de non-zéros). On préfère utiliser une forêt aléatoire si l'on est prêt à supposer que la fonction de régression est constante par morceaux.
-    
-- Cela supprime le biais de sur-ajustement, mais le coût est la diminution de la taille de l'échantillon et le temps de calcul (secondaire) lorsque l'on utilise l'ajustement croisé.
-    
-- Dans la section 3.4/4.b (étude de simulation du chapitre HD et endogénéité). Expliquez (brièvement) pourquoi.
-    
-- C'est également une procédure de sélection de variables qui ne fait usage que d'une seule équation, elle est donc sujet au problème de l'inférence post-sélection
+1. No, the double selection procedure is the key. However, note that the Lasso is *“good enough”* to be used in the initial steps.
+
+2. See the remark in Chapter 5. Sample splitting is used.
+
+3. Lasso is used when one is willing to assume a linear structure with sparse coefficients (only a small number of non-zeros). A random forest is preferred when one assumes that the regression function is piecewise constant.
+
+4. This eliminates overfitting bias, but the cost is a reduction in sample size and (secondarily) computation time when using cross-fitting.
+
+5. In Section 3.4/4.b (simulation study from the high-dimension and endogeneity chapter.
+
+6. It is also a variable selection procedure that uses only a single equation, and is therefore subject to the problem of post-selection inference.
 
 
 ## 6. High dimension and endogeneity
 
 
-- Soit la liste des instruments disponibles et possibles est grande, alors que le chercheur sait que seuls quelques-uns d'entre eux sont pertinents ; mais surtout, même lorsqu'on ne dispose que d'un seul instrument $Z$, on peut aussi envisager des transformations de l'instrument initial 
-    \begin{equation*}
-    \left(f_1(Z), \dots, f_p(Z) \right)
-    \end{equation*}
+1. Soit la liste des instruments disponibles et possibles est grande, alors que le chercheur sait que seuls quelques-uns d'entre eux sont pertinents ; mais surtout, même lorsqu'on ne dispose que d'un seul instrument $Z$, on peut aussi envisager des transformations de l'instrument initial 
+
+    $$\left(f_1(Z), \dots, f_p(Z) \right).$$
+
     par une famille de fonctions $(f_i)_{i=1}^p$, ce qui nous ramène au cas de très nombreux instruments possibles. Dans le cours, nous utilisons un modèle parcimonieux pour les variables instrumentales, en supposant que seuls quelques instruments sont effectivement utiles, et nous fournissons une méthode basée sur Lasso pour estimer le traitement tout en contrôlant l'estimation du paramètre de nuisance.
 
 - Sans le terme $E[D |X ]$ dans (6.10), on peut calculer par exemple que $\partial_{\nu} M(\tau_0,\eta_0) = \tau_0 \E[ X(Z'\delta_0 + X'\gamma_0)]$, qui est différent de 0 en général.
-- On utilise la formule de $\sigma_{\Gamma}^2$ donnée en (6.15), et on obtient que 
-    \begin{align*}
-       \sigma_{\Gamma}^2 = & \E[\varepsilon^2 \E[D|Z]^2 ] / \E[\E[D|Z]^2  ]^2\\
-       =& \sigma^2 \E[\E[D|Z]^2  ]^{-1}
-    \end{align*}
-    en utilisant l'hypothèse d'homoscedasticité conditionnelle. On a donc que la borne (3.14) d’efficacité semi-paramétrique est atteinte (dans ce cas où $S = D$, $W=Z$ avec les notation de la section 3.4).   
+
+- On utilise la formule de $\sigma_{\Gamma}^2$ donnée en (6.15), et on obtient que
+
+     $$ \sigma_{\Gamma}^2 = & \E[\varepsilon^2 \E[D|Z]^2 ] / \E[\E[D|Z]^2  ]^2 = \sigma^2 \E[\E[D|Z]^2  ]^{-1}.$$
+
+    en utilisant l'hypothèse d'homoscedasticité conditionnelle. On a donc que la borne (3.14) d’efficacité semi-paramétrique est atteinte (dans ce cas où $S = D$, $W=Z$ avec les notation de la section 3.4). 
+
 - On vérifie que l'hypothèse (ORT) $\partial_{\eta} M(\tau_0,\eta_0)=0$ est satifaite en remarquant qu'avec (6.11) et (6.2), on obtient $\partial_{\nu} M(\tau_0,\eta_0) = \tau_0 \E[ X (\zeta'\delta_0)] =0$, $\partial_{\theta} M(\tau_0,\eta_0) = -\E[ X (\zeta'\delta_0)]=0$. Les deux autres conditions par rapport à  $\gamma$ et $\delta$ sont aussi vérifiées en utilisant (6.3) et (6.4).
 - En utilisant les notations de (6.17), on a $u_{i,j} = \delta_j + \varepsilon_{i,j}$ et donc 
     \begin{align*}
@@ -57,7 +58,6 @@
         P_{i,j} = \int \left( \underset{j'\neq j}{\prod} e^{-e^{-(\varepsilon + \delta_j - \delta_{j'})}}\right) e^{-\varepsilon}e^{-e^{-\varepsilon}} d\varepsilon.
     \end{align*}
     Après un peu d'algèbre et un changement de variable, on obtient (6.17).
-
 
 ## 7. Going further
 
