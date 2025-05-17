@@ -179,9 +179,7 @@ This documents regroups elements of solution for th exercises in Chapter 15.
 
 3. As usual, using a logistic regression:
 
-   $$
-   \tilde{S}_t := \ln\left(\frac{S_t}{1-S_t}\right) = g(X_t' \beta_0) + \tau_0 D_t + \xi_{L,t}.
-   $$
+   $$\tilde{S}_t := \ln\left(\frac{S_t}{1-S_t}\right) = g(X_t' \beta_0) + \tau_0 D_t + \xi_{L,t}.$$
 
 4. We add the following linear equation:
 
