@@ -48,11 +48,18 @@
 
 4. We check that the assumption (ORT) $\partial_{\eta} M(\tau_0,\eta_0)=0$ is satisfied by noting that with (6.11) and (6.2), we obtain $\partial_{\nu} M(\tau_0,\eta_0) = \tau_0 E[ X (\zeta'\delta_0)] =0$, $\partial_{\theta} M(\tau_0,\eta_0) = -E[ X (\zeta'\delta_0)]=0$. The other two conditions with respect to $\gamma$ and $\delta$ are also verified using (6.3) and (6.4).
 
-5. Using the notation of (6.17), we obtain $u_{i,j} = \delta_j + \varepsilon_{i,j}$, thus 
+5. Using the notation of (6.17), we obtain $u_{i,j} = \delta_j + \varepsilon_{i,j}$, thus
+   
     $$P_{i,j}  =  P\left(\delta_j - \delta_{j'}  + \varepsilon_{i,j} >  \varepsilon_{i,j'}, \ \forall j' \neq j\right).$$
-    Let $\varepsilon_{i,j}$, this probability is the probability of $\delta_j - \delta_{j'}  + \varepsilon_{i,j} >  \varepsilon_{i,j'}$, which is $$F(\delta_j - \delta_{j'}  + \varepsilon_{i,j}) = \exp(-\exp(- (\delta_j - \delta_{j'}  + \varepsilon_{i,j})).$$
-   We thus obtain
+
+Let $\varepsilon_{i,j}$, this probability is the probability of $\delta_j - \delta_{j'}  + \varepsilon_{i,j} >  \varepsilon_{i,j'}$, which is 
+
+$$F(\delta_j - \delta_{j'}  + \varepsilon_{i,j}) = \exp(-\exp(- (\delta_j - \delta_{j'}  + \varepsilon_{i,j})).$$
+
+We thus obtain
+
  $$P_{i,j} = \int \left( \underset{j'\neq j}{\prod} e^{-e^{-(\varepsilon + \delta_j - \delta_{j'})}}\right) e^{-\varepsilon}e^{-e^{-\varepsilon}} d\varepsilon.$$
+
  After a little algebra and a change of variable, we obtain (6.17).
 
 
