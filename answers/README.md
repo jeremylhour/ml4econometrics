@@ -1,5 +1,7 @@
 # Machine Learning for Econometrics: elements of answer
 
+This document gives some elements of solution to the questions propsoed at the end of each chapter.
+
 ## 4. Post-selection Inference
 
 1. see section 4.2.
