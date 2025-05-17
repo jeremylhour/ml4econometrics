@@ -80,7 +80,11 @@ We thus obtain
 
 4. CATE can be estimated, but not convergently. Thus, only certain CATE features such as GATES or CLAN can be estimated.
 
-5. In this case, we only have confidence intervals \textbf{conditional} $$ \mathbb{P}\left(\theta_A \in [L_A, U_A] \middle| \text{Data}_A \right) = 1 - \alpha + o_P(1),$$ where $[L_A, U_A]: = \left[ \widehat{\theta}_A \pm \Phi^{-1}(1-\alpha/2) \widehat{\sigma}_A \right] $. This does not take into account the variability introduced by sample splitting, which prevents any generalization to any distribution of the whole data set.
+5. In this case, we only have confidence intervals \textbf{conditional}
+
+$$\mathbb{P}\left(\theta_A \in [L_A, U_A] \middle| \text{Data}_A \right) = 1 - \alpha + o_P(1),$$
+
+where $[L_A, U_A]: = \left[\widehat{\theta}_A \pm \Phi^{-1}(1-\alpha/2) \widehat{\sigma}_A \right]$. This does not take into account the variability introduced by sample splitting, which prevents any generalization to any distribution of the whole data set.
 
 6. If the same sample were used to estimate splits and values on leaves, the algorithm would tend to separate two leaves that have heterogeneous (relatively high and low) treatment effects in this sample, leading to a biased estimate if we use the sample to evaluate it. If we use another sample to evaluate it, this limits overlearning and ensures convergence.
 
