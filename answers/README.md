@@ -6,7 +6,7 @@
     
 2. see section 4.3.
     
-3. Ideally, we would like to be able to calculate confidence intervals and perform tests on this parameter of interest. However, the fact that the asymptotic distribution of the Lasso estimator is not known makes constructing these quantities more difficult.
+3. Ideally, we would like to be able to compute confidence intervals and perform tests on this parameter of interest. However, the fact that the asymptotic distribution of the Lasso estimator is not known makes constructing these quantities more difficult.
         
 4. Regularization bias is a bias that arises because the use of machine learning tools in the first step produces estimators that do not converge at a fast enough rate. In the case of Lasso, it is a form of omitted variable bias. It can exist even in a low-dimensional setting if a non-conventional estimator is used in the first step or if there is a selection step involved. (Think of the Leeb and Pötscher model).
     
@@ -32,19 +32,19 @@
 
 ## 6. High dimension and endogeneity
 
-1. Soit la liste des instruments disponibles et possibles est grande, alors que le chercheur sait que seuls quelques-uns d'entre eux sont pertinents ; mais surtout, même lorsqu'on ne dispose que d'un seul instrument $Z$, on peut aussi envisager des transformations de l'instrument initial 
+1. Either the list of available and possible instruments is long, whereas the researcher knows that only a few of them are relevant; but above all, even when only one instrument $Z$ is available, transformations of the initial instrument can also be envisaged.
 
     $$\left(f_1(Z), \dots, f_p(Z) \right).$$
 
-    par une famille de fonctions $(f_i)_{i=1}^p$, ce qui nous ramène au cas de très nombreux instruments possibles. Dans le cours, nous utilisons un modèle parcimonieux pour les variables instrumentales, en supposant que seuls quelques instruments sont effectivement utiles, et nous fournissons une méthode basée sur Lasso pour estimer le traitement tout en contrôlant l'estimation du paramètre de nuisance.
+    by a family of functions $(f_i)_{i=1}^p$. This brings us back to the case of very many possible instruments. In the course, we use a parsimonious model for the instrumental variables, assuming that only a few instruments are actually useful, and provide a Lasso-based method for estimating the treatment while controlling the estimate of the nuisance parameter.
 
-2. Sans le terme $\mathbb{E}[D |X ]$ dans (6.10), on peut calculer par exemple que $\partial_{\nu} M(\tau_0,\eta_0) = \tau_0 \mathbb{E}[ X(Z'\delta_0 + X'\gamma_0)]$, qui est différent de 0 en général.
+2. Without the $\mathbb{E}[D |X ]$ term in (6.10), we can compute, for example, that $\partial_{\nu} M(\tau_0,\eta_0) = \tau_0 \mathbb{E}[ X(Z'\delta_0 + X'\gamma_0)]$, which is not 0 in general.
 
-3. On utilise la formule de $\sigma_{\Gamma}^2$ donnée en (6.15), et on obtient que
+3. We use the $\sigma_{\Gamma}^2$ formula given in (6.15), and obtain that
 
      $$ \sigma_{\Gamma}^2 = & \mathbb{E}[\varepsilon^2 \mathbb{E}[D|Z]^2 ] / \mathbb{E}[\mathbb{E}[D|Z]^2  ]^2 = \sigma^2 \mathbb{E}[\mathbb{E}[D|Z]^2  ]^{-1}.$$
 
-    en utilisant l'hypothèse d'homoscedasticité conditionnelle. On a donc que la borne (3.14) d’efficacité semi-paramétrique est atteinte (dans ce cas où $S = D$, $W=Z$ avec les notation de la section 3.4). 
+    using the conditional homoscedasticity assumption. The semi-parametric efficiency bound (3.14) is thus reached (in this case where $S = D$, $W=Z$ with the notation of section 3.4).
 
 4. On vérifie que l'hypothèse (ORT) $\partial_{\eta} M(\tau_0,\eta_0)=0$ est satifaite en remarquant qu'avec (6.11) et (6.2), on obtient $\partial_{\nu} M(\tau_0,\eta_0) = \tau_0 \mathbb{E}[ X (\zeta'\delta_0)] =0$, $\partial_{\theta} M(\tau_0,\eta_0) = -\mathbb{E}[ X (\zeta'\delta_0)]=0$. Les deux autres conditions par rapport à  $\gamma$ et $\delta$ sont aussi vérifiées en utilisant (6.3) et (6.4).
 
