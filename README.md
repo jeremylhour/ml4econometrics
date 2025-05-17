@@ -4,7 +4,7 @@
 <img src="https://github.com/jeremylhour/ml4econometrics/blob/main/ch01_introduction/cover.jpg" width="400">
 </p>
 
-📖 Repo for the textbook "Machine Learning for Econometrics" : [Buy online](http://global.oup.com/academic/product/machine-learning-for-econometrics-9780198918820?lang=en&cc=fr)
+📖 Repo for the textbook "Machine Learning for Econometrics" : [Buy on OUP](http://global.oup.com/academic/product/machine-learning-for-econometrics-9780198918820?lang=en&cc=fr), [Buy on amazon.com](https://a.co/d/cSAt4lD)
 
 *Machine Learning for Econometrics* is a book for economists seeking to grasp modern machine learning techniques - from their predictive performance to the revolutionary handling of unstructured data - in order to establish causal relationships from data.
 
@@ -61,3 +61,16 @@ Part VI. Exercises
 To help the reader navigate this book, the following figure shows the connection between each chapter, identified by its number. An arrow going from one node to another indicates that the originating chapter is a prerequisite for understanding the destination chapter. Apart from Chapters 2 and 3, which are not central to the main discussion, the reader may start with Chapters 4, 8, or 12, which are the first chapters of the second, third, and fifth parts respectively, or with either of the two chapters in the fourth part.
 
 ![Link between chapters](./ch01_introduction/graph_chapter.png)
+
+* * *
+
+# Online material
+
+- [Exercise solutions](./ch15_exercises/README.md)
+- [Elements of answer for the end-of-chapter questions](./answers/README.md)
+
+* * *
+
+# Contact
+
+For a question about the book itself, the easiest way to signal a problem is to open an [<< Issue >>](https://github.com/jeremylhour/ml4econometrics/issues).
