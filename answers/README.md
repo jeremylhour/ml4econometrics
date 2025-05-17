@@ -132,7 +132,7 @@ and this is smaller than $\int_{\Omega} \pi(x) \tau(x) dF_{X}(x)$, hence the con
      - For $b=1, \ldots, B$, reshuffle treatment assignment at random, compute the OLS estimator of $\tau_0$, $\hat \tau_b$ and compare it to $\hat \tau^{obs}$. 
      - Compute Fisher's p-value : 
 
-        $$\hat p := \frac{1}{B} \sum_{b=1}^{B} \mathbf{1} \{\vert \hat \tau_b \vert  \geq \vert \hat \tau^{obs} \vert \}.$$
+        $$\hat p := \frac{1}{B} \sum_{b=1}^{B} \mathbf{1}\left(\vert \hat \tau_b \vert  \geq \vert \hat \tau^{obs} \vert \right).$$
 
      - Reject $H_0$ if $\hat p$ is below a pre-determined threshold: the observed treatment allocation yields an effect that is abnormaly high compared to a random distribution.
 
