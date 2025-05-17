@@ -48,7 +48,7 @@
 
 4. We check that the assumption (ORT) $\partial_{\eta} M(\tau_0,\eta_0)=0$ is satisfied by noting that with (6.11) and (6.2), we obtain $\partial_{\nu} M(\tau_0,\eta_0) = \tau_0 E[ X (\zeta'\delta_0)] =0$, $\partial_{\theta} M(\tau_0,\eta_0) = -E[ X (\zeta'\delta_0)]=0$. The other two conditions with respect to $\gamma$ and $\delta$ are also verified using (6.3) and (6.4).
 
-5. Using the notation of (6.17), we obtain $u_{i,j} = \delta_j + \varepsilon_{i,j}$, thus
+5. Using the notation of (6.14), we obtain $u_{i,j} = \delta_j + \varepsilon_{i,j}$, thus
    
     $$P_{i,j}  =  P\left(\delta_j - \delta_{j'}  + \varepsilon_{i,j} >  \varepsilon_{i,j'}, \ \forall j' \neq j\right).$$
 
@@ -72,45 +72,40 @@ We thus obtain
 
 ## 8. Inference on heterogeneous effects
 
-1. Le problème fondamental de l'inférence causale est que l'on n'observe jamais la *ground truth*, c'est-à-dire le véritable effet du traitement. Il n'est donc pas possible de réutiliser sans modification des procédures standards telles que la validation croisée, du moins pas avec la même efficacité.
+1. The fundamental problem with causal inference is that we never observe the *ground truth*, i.e. the true effect of the treatment. Standard procedures such as cross-validation cannot therefore be reused without modification, at least not with the same efficiency.
 
-2. L'auteur oppose deux stratégies d'attribution d'un traitement (par exemple une campagne d'e-mailing ou d'appels téléphoniques) : soit cibler ceux qui sont les plus susceptibles de ne pas acheter à nouveau, soit cibler ceux qui répondent le plus lorsqu'ils reçoivent le traitement. Ces deux populations ne sont pas nécessairement constituées des mêmes individus. Cibler ceux qui sont les plus susceptibles de ne pas acheter à nouveau est intuitivement logique, mais c'est aussi inefficace : le traitement devrait être attribué de manière à maximiser son impact, mesuré comme l'augmentation de la probabilité d'achat. L'apprentissage automatique générique pourrait être utilisé pour classer les personnes en groupes.
+2. The author contrasts two strategies for attributing a treatment (e.g. an e-mailing or telephone campaign): either targeting those who are most likely not to buy again, or targeting those who respond most when they receive the treatment. These two populations are not necessarily made up of the same individuals. Targeting those who are most likely not to buy again makes intuitive sense, but it's also inefficient: the treatment should be allocated in such a way as to maximize its impact, measured as an increase in the probability of purchase. Generic machine learning could be used to classify people into groups.
 
-3. Les splits aléatoires dans la construction des forêts aléatoires imposent d'explorer tout le support des variables explicatives et évitent la concentration des coupures dans une partie limitée de l'espace, ce qui serait obtenu avec des divisions sélectionnées de manière optimale. Ceci est clé pour obtenir la consistance de l'estimateur. 
+3.Random splits in the construction of random forests require the entire support of the explanatory variables to be explored, and avoid the concentration of cuts in a limited part of space, which would be achieved with optimally selected splits. This is key to achieving estimator consistency.
 
-4. On peut estimer le CATE, mais pas de manière convergente. Ainsi, seulement certains caractéristiques du CATE telles que le GATES ou le CLAN peuvent être estimées.
+4. CATE can be estimated, but not convergently. Thus, only certain CATE features such as GATES or CLAN can be estimated.
 
-5. Dans ce cas, on a uniquement des intervalles de confiance \textbf{conditionnels} $$ \mathbb{P}\left(\theta_A \in [L_A, U_A] \middle| \  \text{Data}_A \right) = 1 - \alpha + o_P(1),$$ où $[L_A, U_A]:= \left[ \widehat{\theta}_A \pm \Phi^{-1}(1-\alpha/2)  \widehat{\sigma}_A  \right] $. Cela ne tient pas compte de la variabilité introduite par le fractionnement de l'échantillon, qui empêche toute généralisation à une quelconque distribution de l'ensemble des données.
+5. In this case, we only have confidence intervals \textbf{conditional} $$ \mathbb{P}\left(\theta_A \in [L_A, U_A] \middle| \text{Data}_A \right) = 1 - \alpha + o_P(1),$$ where $[L_A, U_A]: = \left[ \widehat{\theta}_A \pm \Phi^{-1}(1-\alpha/2) \widehat{\sigma}_A \right] $. This does not take into account the variability introduced by sample splitting, which prevents any generalization to any distribution of the whole data set.
 
-6. Si le même échantillon était utilisé pour estimer les splits et les valeurs sur les feuilles, l'algorithme aurait tendance à séparer deux feuilles qui ont des effets de traitement hétérogènes (relativement élevés et faibles) dans cet échantillon, conduisant ainsi à une estimation biaisée si nous utilisons l'échantillon pour l'évaluer. Si nous utilisons un autre échantillon pour l'évaluer, cela limite le sur-apprentissage et assure la convergence.
+6. If the same sample were used to estimate splits and values on leaves, the algorithm would tend to separate two leaves that have heterogeneous (relatively high and low) treatment effects in this sample, leading to a biased estimate if we use the sample to evaluate it. If we use another sample to evaluate it, this limits overlearning and ensures convergence.
 
-7. L'objectif des forêts aléatoires causales est d'estimer un effet de traitement de manière consistante alors que les forêts aléatoires estiment une fonction de régression et visent à minimiser l'erreur de prédiction (souvent en norme $\ell_2$, ou MSE). Cela a des conséquences sur la forme de l'estimateur, les forêts aléatoires causales nécessitant la propriété d'honnêteté pour être consistante.
+7. The aim of causal random forests is to estimate a treatment effect consistently, whereas random forests estimate a regression function and aim to minimize the prediction error (often in $\ell_2$ norm, or MSE). This has consequences for the form of the estimator, as causal random forests require the honesty property to be consistent.
 
-8. Le meilleur prédicteur linéaire du CATE est la projection linéaire d'un signal sans biais du CATE sur l'espace vectoriel linéaire généré par $T$. En ce sens BLP dépend donc des performances de $T$. S'il s'adapte bien au CATE, alors le coefficient de pente du BLP sera proche de un et nous apprendrons des caractéristiques du CATE en regardant $T$.
+8. The best linear predictor of CATE is the linear projection of an unbiased CATE signal onto the linear vector space generated by $T$. In this sense, BLP depends on the performance of $T$. If it fits CATE well, then BLP's slope coefficient will be close to one, and we'll learn about CATE characteristics by looking at $T$.
 
 
 ## 9. Optimal policy learning
 
-1. A l'aide de l'hypothèse 9.2 (i), la contrainte est pertinente et donc toujours saturée pour la politique optimale, i.e. $c = \int_{x \in \mathcal{X}}\pi(x) dF_X(x)$. Soit $\pi'$ une politique optimale différente de $\pi$ donnée en Proposition 9.1 sur un ensemble de $F_X$ mesure non nulle. Cette politique satisfait aussi la contrainte, et avec l'hypothèse 9.2 (ii), il existe des ensembles $\Omega'$ et $\Omega$, tel que 
-    $$ \int_{\Omega'} \pi'(x) dF_{X}(x) = \int_{\Omega} \pi(x) dF_{X}(x) ,$$
-     $\Omega' \subseteq \{ x: \ \tau(x) < \gamma \}$, et $\Omega \subseteq \{ x: \ \tau(x) \geq \gamma \}$. On a donc 
-    \begin{align*}
-         \int_{\Omega'} \pi'(x) \tau(x) dF_{X}(x) & <  \gamma  \int_{\Omega'} \pi'(x)  dF_{X}(x)\\
-         &= \gamma  \int_{\Omega} \pi(x)  dF_{X}(x) \\
-         & \leq \int_{\Omega} \pi(x) \tau(x) dF_{X}(x),
-    \end{align*}
-    et on obtient une contradiction.
+1. Using Assumption 9.2 (i), the constraint is relevant and therefore always saturated for the optimal policy, i.e. $c = \int_{x \in \mathcal{X}}\pi(x) dF_X(x)$. Let $pi'$ be an optimal policy different from $pi$ given in Proposition 9.1 on a set of non-zero $F_X$ measures. This policy also satisfies the constraint, and with Assumption 9.2 (ii), there exist sets $\Omega'$ and $\Omega$, such that
+    $$\int_{\Omega'} \pi'(x) dF_{X}(x) = \int_{\Omega} \pi(x) dF_{X}(x),$$
+     $\Omega' \subseteq \{ x: \ \tau(x) < \gamma \}$, et $\Omega \subseteq \{ x: \ \tau(x) \geq \gamma \}$. We thus have
+$$\int_{\Omega'} \pi'(x) \tau(x) dF_{X}(x) <  \gamma  \int_{\Omega'} \pi'(x)  dF_{X}(x)= \gamma  \int_{\Omega} \pi(x)  dF_{X}(x)$$
+and this is smaller than $\int_{\Omega} \pi(x) \tau(x) dF_{X}(x)$, hence the contradiction.
 
-2. L'objectif utilisé est le contrôle du regret dans le pire des cas (*minimax regret criterion*), voir (9.6). L'avantage est la robustesse des politiques recommandées aux différentes distributions des effets possibles. L'inconvénient est que l'on utilise pas de potentiel *apriori* sur ces effets qui permettraient d'obtenir des meilleurs résultats s'ils sont vérifiés. 
+2. The objective used is worst-case regret control (*minimax regret criterion*), see (9.6). The advantage is the robustness of the recommended policies to different distributions of possible effects. The disadvantage is that we don't use potential *apriori* on these effects, which would allow us to obtain better results if they are verified. 
 
-3. Il est souhaitable de limiter les classes de politiques considérées de manière à pouvoir les implémenter simplement sur le terrain, mais aussi pour obtenir une borne supérieure sur le regret (Théorème 9.1).
+3. It's desirable to limit the policy classes considered so that they can be implemented simply in the field, but also to obtain an upper bound on regret (Theorem 9.1).
 
-4. On limite la complexité des classes de politiques considérées à l'aide de la dimension de Vapnik-Chervonenkis (VC). On peut autoriser des classes dont la complexité augmente avec la taille d’échantillon, mais moins rapidement que $n$.
+4. The complexity of the policy classes considered is limited by the Vapnik-Chervonenkis (VC) dimension. We can allow classes whose complexity increases with sample size, but less rapidly than $n$.
 
 5. see Remark 9.2.
 
-6. Cette formulation fait apparaître l’apprentissage de politiques par maximisation empirique comme un problème d’optimisation pondérée dans le cadre d’une classification. On peut utiliser les outils développés en classification pondérées
-(voir e.g., Athey et Wager, 2021 ; Zhou et al., 2018 pour plus de détails) pour résoudre ce problème.
+6. This formulation makes policy learning by empirical maximization appear as a weighted optimization problem in the context of classification. We can use tools developed in weighted classification (see e.g., Athey and Wager, 2021; Zhou et al., 2018 for more details) to solve this problem.
 
 
 ## 10. The synthetic control method
@@ -177,10 +172,10 @@ We thus obtain
 
 ## 14. Modern language models
 
-1. L'idée est d'avoir une mesure de la qualité d'un produit telle que perçue par le consommateur. Par exemple, on peut penser à inclure dans un modèle la moyenne des embeddings des commentaires d'évaluation d'un produit. Ou bien les mebeddings des photos de ce produit.
+1. The idea is to have a measure of a product's quality as perceived by the consumer. For example, you could include in a model the average embedding of a product's review comments. Or the mebeddings of product photos.
     
 2. see section 14.2.
 
 3. see section 14.2.2.
 
-4. Par l'utilisation de n-grams de mots. Les limites sont qu'il peut être compliqué de prendre en compte des dépendances longues, que le nombre de tokens augmente de manière exponentielle, et que l'algorithme ainsi entrainé ne pourra pas s'adapter à une séquence de mot jamais vue.
+4. By using n-grams of words. The limitations are that long dependencies can be complicated to take into account, the number of tokens increases exponentially, and the trained algorithm will not be able to adapt to a never-before-seen word sequence.
