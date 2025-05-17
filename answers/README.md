@@ -160,7 +160,6 @@ and this is smaller than $\int_{\Omega} \pi(x) \tau(x) dF_{X}(x)$, hence the con
 
 4. The first challenge is to match each forum post with the financial asset(s) mentioned. This phase largely depends on data quality. If the posts systematically mention stock tickers (e.g., AAPL for Apple Inc., GME for GameStop, etc.), it's enough to obtain a list of these tickers and search for their occurrences in the messages. Using the message dates, each post can then be matched to the prices of the mentioned assets. If the messages do not mention stock tickers, one must either adopt a more sophisticated approach (e.g., based on proximity to company names), or a more data-driven approach—such as a "bag-of-words" classification with a large number of classes (as many as there are assets). Once the data matching is done, a wide range of strategies become possible (e.g., sentiment analysis of the messages).
 
-
 ## 13. Word embeddings
 
 1. The cosine similarity for two distinct words is zero.
