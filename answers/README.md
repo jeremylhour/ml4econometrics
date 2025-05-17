@@ -124,7 +124,7 @@ and this is smaller than $\int_{\Omega} \pi(x) \tau(x) dF_{X}(x)$, hence the con
      - For $b=1, \ldots, B$, reshuffle treatment assignment at random, compute the OLS estimator of $\tau_0$, $\hat \tau_b$ and compare it to $\hat \tau^{obs}$. 
      - Compute Fisher's p-value : 
 
-        $$\hat p := \frac{1}{B} \sum_{b=1}^{B} \mathbf{1} \left\{ \vert \hat \tau_b \vert  \ge \vert \hat \tau^{obs} \vert \right\}.$$
+        $$\hat p := \frac{1}{B} \sum_{b=1}^{B} \mathbf{1} \left\{ \vert \hat \tau_b \vert  \geq \vert \hat \tau^{obs} \vert \right\}.$$
 
      - Reject $H_0$ if $\hat p$ is below a pre-determined threshold: the observed treatment allocation yields an effect that is abnormaly high compared to a random distribution.
 
@@ -157,17 +157,15 @@ and this is smaller than $\int_{\Omega} \pi(x) \tau(x) dF_{X}(x)$, hence the con
 
 1. The cosine similarity for two distinct words is zero.
 
-2. La réponse à la question précédente indique que pour deux mots distincts la similarité cosinus est de zéro. Il n'est donc pas possible d'obtenir une notion de << degré de similarité >> entre deux mots avec cette approche.
+2. The answer to the previous question indicates that for two distinct words the cosine similarity is zero. It is therefore not possible to obtain a notion of 'degree of similarity' between two words with this approach.
 
-3. Un plongement lexical est une technique utilisée pour représenter les mots d'un texte sous forme de vecteurs de dimension réduite. Le but d'un plongement lexical est de capturer de manière compacte les relations sémantiques entre les mots dans le texte, de manière à pouvoir utiliser ces représentations vectorielles pour effectuer des tâches de traitement du langage naturel. On peut ensuite utiliser ces vecteurs pour représenter un document en les agrégeant (par exemple via une moyenne), puis en utilisant cette représentation par exemple dans une régression logistique.
+3. Lexical embedding is a technique used to represent the words in a text as reduced-dimension vectors. The aim of lexical embedding is to compactly capture the semantic relationships between words in text, so that these vector representations can be used to perform natural language processing tasks. These vectors can then be used to represent a document by aggregating them (via an average, for example), and then using this representation in a logistic regression, for example.
 
 4. see section 13.2.
 
 5. see section 13.2.
 
 6. see section 13.3.
-
-7. XXX
 
 
 ## 14. Modern language models
