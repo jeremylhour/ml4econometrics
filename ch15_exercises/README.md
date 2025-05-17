@@ -12,15 +12,11 @@ This documents regroups elements of solution for th exercises in Chapter 15.
 
 2. The theoretical value is 
 
-   $$
-   \beta_0 = \mathbb{E} \left[ (1-D)X X' \right]^{-1} \mathbb{E} \left[ (1-D)X Y \right].
-   $$
+   $$\beta_0 = \mathbb{E} \left[ (1-D)X X' \right]^{-1} \mathbb{E} \left[ (1-D)X Y \right].$$
 
    Its empirical counterpart is given by:
 
-   $$
-   \widehat{\beta} = \left[ \frac{1}{n} \sum_{i=1}^n (1-D_i) X_i X_i' \right]^{-1} \left[ \frac{1}{n} \sum_{i=1}^n (1-D_i) X_i Y_i \right].
-   $$
+   $$\widehat{\beta} = \left[ \frac{1}{n} \sum_{i=1}^n (1-D_i) X_i X_i' \right]^{-1} \left[ \frac{1}{n} \sum_{i=1}^n (1-D_i) X_i Y_i \right].$$
 
    $\widehat{\beta}$ is also obtained from a regression of $Y$ on $X$ using the sample of untreated units.
 
@@ -303,7 +299,7 @@ This documents regroups elements of solution for th exercises in Chapter 15.
     a. Yes, the test of $H_0$: "$\beta_1 = 0$" is rejected at any confidence level. On average, households that received an incentive to save water consume about 952 gallons (3604 liters) less water than untreated households, all else equal.  
     b. The hypothesis that $\beta_2 = 0$ is rejected for algorithm 1. For algorithm 2, it is not rejected (for a test at the 5% confidence level, for example), which means either that there is no heterogeneity or that algorithm 2 is too weak. Since algorithm 2 is dominated by algorithm 1 in terms of $\Lambda$, more weight should be given to algorithm 1.
        
-       Note that, as explained in the course, for a test at level $\alpha$, the p-value displayed here must be less than $\alpha/2$ to be rejected, in order to account for the random splitting of the data.
+    Note that, as explained in the course, for a test at level $\alpha$, the p-value displayed here must be less than $\alpha/2$ to be rejected, in order to account for the random splitting of the data.
 
 4.  
     a. See the regression for the GATES:
