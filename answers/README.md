@@ -38,7 +38,7 @@
 
     by a family of functions $(f_i)_{i=1}^p$. This brings us back to the case of very many possible instruments. In the course, we use a parsimonious model for the instrumental variables, assuming that only a few instruments are actually useful, and provide a Lasso-based method for estimating the treatment while controlling the estimate of the nuisance parameter.
 
-2. Without the $\mathbb{E}[D |X ]$ term in (6.10), we can compute, for example, that $\partial_{\nu} M(\tau_0,\eta_0) = \tau_0 \mathbb{E}[ X(Z'\delta_0 + X'\gamma_0)]$, which is not 0 in general.
+2. Without the $\mathbb{E}[D |X ]$ term in (6.10), we can compute, for example, that $\partial_{\nu} M(\tau_0,\eta_0) = \tau_0 \mathbb{E}[ X(Z'\delta_0 + X'\gamma_0)]$, which is different from 0 in general.
 
 3. We use the $\sigma_{\Gamma}^2$ formula given in (6.15), and obtain that
 
@@ -46,18 +46,18 @@
 
     using the conditional homoscedasticity assumption. The semi-parametric efficiency bound (3.14) is thus reached (in this case where $S = D$, $W=Z$ with the notation of section 3.4).
 
-4. On vérifie que l'hypothèse (ORT) $\partial_{\eta} M(\tau_0,\eta_0)=0$ est satifaite en remarquant qu'avec (6.11) et (6.2), on obtient $\partial_{\nu} M(\tau_0,\eta_0) = \tau_0 \mathbb{E}[ X (\zeta'\delta_0)] =0$, $\partial_{\theta} M(\tau_0,\eta_0) = -\mathbb{E}[ X (\zeta'\delta_0)]=0$. Les deux autres conditions par rapport à  $\gamma$ et $\delta$ sont aussi vérifiées en utilisant (6.3) et (6.4).
+4. We check that the assumption (ORT) $\partial_{\eta} M(\tau_0,\eta_0)=0$ is satisfied by noting that with (6.11) and (6.2), we obtain $\partial_{\nu} M(\tau_0,\eta_0) = \tau_0 \mathb{E}[ X (\zeta'\delta_0)] =0$, $\partial_{\theta} M(\tau_0,\eta_0) = -\mathb{E}[ X (\zeta'\delta_0)]=0$. The other two conditions with respect to $\gamma$ and $\delta$ are also verified using (6.3) and (6.4).
 
-5. En utilisant les notations de (6.17), on a $u_{i,j} = \delta_j + \varepsilon_{i,j}$ et donc 
+5. Using the notation of (6.17), we obtain $u_{i,j} = \delta_j + \varepsilon_{i,j}$ et donc 
     \begin{align*}
         P_{i,j} = & P\left(\delta_j + \varepsilon_{i,j} > \delta_{j'} + \varepsilon_{i,j'}, \ \forall j' \neq j\right)\\
         = & P\left(\delta_j - \delta_{j'}  + \varepsilon_{i,j} >  \varepsilon_{i,j'}, \ \forall j' \neq j\right).
     \end{align*}
-    Pour un $ \varepsilon_{i,j}$ fixé, cette probabilité est le produit des probabilités des $\delta_j - \delta_{j'}  + \varepsilon_{i,j} >  \varepsilon_{i,j'}$, qui est donnée par $F(\delta_j - \delta_{j'}  + \varepsilon_{i,j}) = \exp(-\exp(- (\delta_j - \delta_{j'}  + \varepsilon_{i,j}))$. On a donc 
+    Let $ \varepsilon_{i,j}$, this probability is the probability of $\delta_j - \delta_{j'}  + \varepsilon_{i,j} >  \varepsilon_{i,j'}$, which is $F(\delta_j - \delta_{j'}  + \varepsilon_{i,j}) = \exp(-\exp(- (\delta_j - \delta_{j'}  + \varepsilon_{i,j}))$. We thus obtain
     \begin{align*}
         P_{i,j} = \int \left( \underset{j'\neq j}{\prod} e^{-e^{-(\varepsilon + \delta_j - \delta_{j'})}}\right) e^{-\varepsilon}e^{-e^{-\varepsilon}} d\varepsilon.
     \end{align*}
-    Après un peu d'algèbre et un changement de variable, on obtient (6.17).
+ After a little algebra and a change of variable, we obtain (6.17).
 
 
 ## 7. Going further
