@@ -42,7 +42,7 @@
 
 3. We use the $\sigma_{\Gamma}^2$ formula given in (6.15), and obtain that
 
-     $$ \sigma_{\Gamma}^2 = \frac{E[\varepsilon^2 E[D|Z]^2 ]}{E[E[D|Z]^2  ]^2} = \sigma^2 E[E[D|Z]^2]^{-1}.$$
+     $$\sigma_{\Gamma}^2 = \frac{E[\varepsilon^2 E[D|Z]^2 ]}{E[E[D|Z]^2  ]^2} = \sigma^2 E[E[D|Z]^2]^{-1}.$$
 
     using the conditional homoscedasticity assumption. The semi-parametric efficiency bound (3.14) is thus reached (in this case where $S = D$, $W=Z$ with the notation of section 3.4).
 
